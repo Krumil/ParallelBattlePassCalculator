@@ -3,10 +3,10 @@
 </template>
 
 <script>
-	import HelloWorld from './components/HelloWorld.vue';
+	import HelloWorld from "./components/HelloWorld.vue";
 
 	export default {
-		name: 'App',
+		name: "App",
 		components: {
 			HelloWorld
 		}
@@ -15,8 +15,8 @@
 
 <style>
 	@font-face {
-		font-family: 'Parallel'; /* You can name it whatever you like */
-		src: url('~@/assets/font.woff2') format('woff2');
+		font-family: "Parallel"; /* You can name it whatever you like */
+		src: url("~@/assets/font.woff2") format("woff2");
 	}
 
 	body {
@@ -25,7 +25,8 @@
 	}
 
 	* {
-		font-family: 'Parallel', sans-serif;
+		font-family: "Parallel", sans-serif;
+		box-sizing: border-box;
 	}
 
 	#app {
