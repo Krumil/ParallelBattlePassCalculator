@@ -68,6 +68,15 @@
 					</p>
 				</div>
 			</transition>
+
+			<transition name="slide-up">
+				<div v-if="showNoWinNecessaryText">
+					<p>
+						Congrats! You will reach this level only by completing your daily missions and weekly mission
+						claims.
+					</p>
+				</div>
+			</transition>
 		</div>
 	</div>
 </template>
@@ -108,6 +117,7 @@
 			const showResult = ref(false);
 			const showFirstText = ref(false);
 			const showSecondText = ref(false);
+			const showNoWinNecessaryText = ref(false);
 
 			const showTooltip = field => {
 				tooltips.value[field] = true;
@@ -147,6 +157,7 @@
 			const calculateGamesNeeded = () => {
 				showFirstText.value = false;
 				showSecondText.value = false;
+				showNoWinNecessaryText.value = false;
 
 				gamesNecessary.value = 0;
 				winsNecessary.value = 0;
@@ -174,7 +185,11 @@
 				gamesPerDay.value = Math.ceil(gamesNecessary.value / remainingDays);
 				showResult.value = true;
 
-				animateNumber();
+				if (gamesNecessary.value == 0) {
+					showNoWinNecessaryText.value = true;
+				} else {
+					animateNumber();
+				}
 			};
 
 			watch(gamesNecessary, newValue => {
@@ -195,6 +210,7 @@
 				showResult,
 				showFirstText,
 				showSecondText,
+				showNoWinNecessaryText,
 				startLevel,
 				weeksMissing,
 				winPercentage,
