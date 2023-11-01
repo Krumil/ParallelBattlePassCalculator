@@ -165,12 +165,13 @@
 				const p = winPercentage.value / 100;
 				const monthLastDay = new Date(new Date().getFullYear(), new Date().getMonth() + 1, 0).getDate();
 				const remainingDays = monthLastDay - (currentDay.value || new Date().getDate()) + 1;
-				const xpDaily = 500 * (monthLastDay - missedMissions.value);
-				const xpWeekly = 1500 * (4 - weeksMissing.value);
+				const xpDaily = 600 * (monthLastDay - missedMissions.value);
+				// const xpDaily = 650 * (monthLastDay - missedMissions.value);
+				const xpWeekly = 3000 * (4 - weeksMissing.value);
 				let totalXp = xpDaily + xpWeekly + startLevel.value * 1000;
 				let xpToReach = levelToReach.value * 1000;
-				const xpPerWin = 20; // XP awarded on each win
-				let xpFromWinBonuses = 750;
+				const xpPerWin = 40; // XP awarded on each win
+				let xpFromWinBonuses = 500;
 
 				while (totalXp < xpToReach) {
 					winsNecessary.value += 1; // Increment the ref value
